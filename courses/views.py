@@ -13,3 +13,4 @@
 # def courses(request):
 # 	teachers_info=Teacher_Registration.objects.all()
 # 	return render(request,"courses.html",{'teachers_info':teachers_info})
+

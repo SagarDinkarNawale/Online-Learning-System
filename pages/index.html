@@ -1,0 +1,206 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>WebUni</title>
+	<meta charset="UTF-8">
+	<meta name="description" content="WebUni Education Template">
+	<meta name="keywords" content="webuni, education, creative, html">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Favicon -->   
+	<link href="{% static 'img/favicon.ico' %}" rel="shortcut icon"/>
+
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,500,500i,600,600i,700,700i,800,800i" rel="stylesheet">
+
+	<!-- Stylesheets -->
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}"/>
+	<link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}"/>
+	<link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}"/>
+	<link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+
+
+
+</head>
+<body>
+	<!-- Page Preloder -->
+	<div id="preloder">
+		<div class="loader"></div>
+	</div>
+
+ 
+
+	<!-- Header section -->
+	<header class="header-section">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3 col-md-3">
+					<div class="site-logo">
+						<img src="{% static 'img/logo.png' %}" alt="">
+					</div>
+					<div class="nav-switch">
+						<i class="fa fa-bars"></i>
+					</div>
+				</div>
+				<div class="col-lg-9 col-md-9">
+					<a href="" class="site-btn header-btn">Login</a>
+					<nav class="main-menu">
+						<ul>
+							
+							<li><a href="{% url 'index' %}">Home</a></li>
+							<li><a href="#">About us</a></li>
+							<li><a href="{% url 'courses' %}">Courses</a></li>
+							<li><a href="{% url 'news' %}">News</a></li>
+							<li><a href="{% url 'contact' %}">Contact</a></li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</header>
+	<!-- Header section end -->
+
+
+	<!-- Hero section -->
+	<section class="hero-section set-bg" data-setbg="{% static 'img/bg.jpg' %}">
+		<div class="container">
+			<div class="hero-text text-white">
+				<h2>Get The Best Free Online Courses</h2>
+				 
+			</div>
+		 
+		</div>
+	</section>
+	<!-- Hero section end -->
+
+
+	<!-- categories section -->
+	<section class="categories-section spad">
+		<div class="container">
+			<div class="section-title">
+				<h2>Our Course Categories</h2>
+				<p>Here We Plan to add Too Many Cources but still we worked on that.</p>
+			</div>
+			<div class="row">
+				<!-- categorie -->
+				<div class="col-lg-4 col-md-6">
+					<div class="categorie-item">
+						<div class="ci-thumb set-bg" data-setbg="{% static 'img/categories/11.jpg' %}"></div>
+						<div class="ci-text">
+							<h5>Web Development</h5>
+							<p>Web development is the work involved in developing a website for the Internet or an intranet.</p>
+							<span>{{web_dev}} Courses </span>
+						</div>
+					</div>
+				</div>
+				<!-- categorie -->
+				<div class="col-lg-4 col-md-6">
+					<div class="categorie-item">
+						<div class="ci-thumb set-bg" data-setbg="{% static 'img/categories/22.jpg' %}"></div>
+						<div class="ci-text">
+							<h5>Software Development</h5>
+							<p>Software development is the process of  specifying, designing, programming fixing involved in creating</p>
+							<span>{{soft_dev}} Courses </span>
+						</div>
+					</div>
+				</div>
+				<!-- categorie -->
+				<div class="col-lg-4 col-md-6">
+					<div class="categorie-item">
+						<div class="ci-thumb set-bg" data-setbg="{% static 'img/categories/33.jpg' %}"></div>
+						<div class="ci-text">
+							<h5>Banking Sector</h5>
+							<p> It is a financial institution that accepts deposits from the public and creates Demand Deposit.</p>
+							<span>{{banking}} Courses </span>
+						</div>
+					</div>
+				</div>
+				<!-- categorie -->
+				<div class="col-lg-4 col-md-6">
+					<div class="categorie-item">
+						<div class="ci-thumb set-bg" data-setbg="{% static 'img/categories/44.jpg' %}"></div>
+						<div class="ci-text">
+							<h5>Social Media</h5>
+							<p>Social media are interactive computer-mediated technologies that facilitate the creation </p>
+							<span>{{social_media}} Courses </span>
+						</div>
+					</div>
+				</div>
+				<!-- categorie -->
+				<div class="col-lg-4 col-md-6">
+					<div class="categorie-item">
+						<div class="ci-thumb set-bg" data-setbg="{% static 'img/categories/55.jpg' %}"></div>
+						<div class="ci-text">
+							<h5>Civil Services</h5>
+							<p>The Civil Services Examination is a nationwide competitive examination in India conducted UPSC</p>
+							<span>{{civil_services}} Courses </span>
+						</div>
+					</div>
+				</div>
+ 				 
+			</div>
+		</div>
+	</section>
+	<!-- categories section end -->
+
+
+
+
+
+	<!-- signup section -->
+	<section class="signup-section spad">
+		<div class="signup-bg set-bg" data-setbg="{% static 'img/signup-bg.jpg' %}"></div>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-lg-6">
+					<div class="signup-warp">
+						<div class="section-title text-white text-left">
+							<h2>Sign up to became a teacher</h2>
+							<p>Go to Registration page of Teacher then You will get full access
+							to add new cources on our website</p>
+						</div>
+						<!-- signup form -->
+						<form class="signup-form">
+							{% csrf_token %}
+							<input type="text" name=name placeholder="Your Name">
+							<input type="text" name=email placeholder="Your E-mail">
+							<input type="text" name=desg placeholder="Current Designation">
+							  <button formaction="{% url 'teacher_registration' %}" class="btn btn-danger">Go to Teacher Registration Page.. !</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- signup section end -->
+
+
+	
+<!-- footer section -->
+	<footer class="footer-section spad-4 pb-1">
+		 
+		   <div class="card-footer bg-transparent border-success"> 
+		   <ul class="footer-menu">
+					<li><a href="#">Terms & Conditions</a></li>
+					<li><a href="#">Register</a></li>
+					<li><a href="#">Privacy</a></li>
+				</ul></div>
+				<div class="copyright"> 
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved  !
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></div>
+			
+
+				
+				
+	</footer> 
+	<!-- footer section end -->
+
+	<!--====== Javascripts & Jquery ======-->
+	<script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+	<script src="{% static 'js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'js/mixitup.min.js' %}"></script>
+	<script src="{% static 'js/circle-progress.min.js' %}"></script>
+	<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+	<script src="{% static 'js/main.js' %}"></script>
+</body> 
+</html>
